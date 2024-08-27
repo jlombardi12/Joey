@@ -1,0 +1,73 @@
+story = "A"
+text = "B"
+role = "C"
+director = "D"
+cast = "F"
+
+
+#            A   B   C   D   F
+# Story     +6  +5  +4  +2  +0
+# Text      +5  +4  +3  +1  +0
+# Role      +4  +3  +2  +1  +0
+# Director  +3  +2  +1  +0  +0
+# Cast/Misc +2  +1  +0  +0  +0
+
+scoring_dict = {
+    "story": {
+        "A":6,
+        "B":5,
+        "C":4,
+        "D":2,
+        "F":0,  
+    },
+    "text": {
+        "A":5,
+        "B":4,
+        "C":3,
+        "D":1,
+        "F":0 
+    },
+    "role": {
+        "A":4,
+        "B":3,
+        "C":2,
+        "D":1,
+        "F":0
+    },
+    "director": {
+        "A":3,
+        "B":3,
+        "C":2,
+        "D":1,
+        "F":0
+    },
+    "cast": {
+        "A":2,
+        "B":1,
+        "C":0,
+        "D":0,
+        "F":0
+    }
+}
+story_score = scoring_dict['story'][story]
+text_score = scoring_dict['text'][text]
+role_score = scoring_dict['role'][role]
+director_score = scoring_dict['director'][director]
+cast_score = scoring_dict['cast'][cast]
+
+total_grade = story_score + text_score + role_score + director_score + cast_score
+
+if total_grade == 20: 
+    message_to_print = "Perfect Score"
+elif total_grade <=19 and total_grade >=17:
+    message_to_print = "Must do"
+elif total_grade <=16 and total_grade >=14:
+    message_to_print = "Seriously consider"
+elif total_grade <=13 and total_grade >=12:
+    message_to_print = "On the bubble"
+elif total_grade <= 11:
+    message_to_print = "Pass"
+
+print(total_grade)
+message_to_print 
+
